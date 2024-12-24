@@ -16,6 +16,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,6 +41,8 @@ import com.example.bootcamp_whatsappui_homework.ui.components.FilterButton
 fun ChatScreen(modifier: Modifier = Modifier) {
 
     val contacts = GetContacts()
+    var selectedFilter by rememberSaveable { mutableStateOf("All") }
+
 
     Column(modifier = Modifier.fillMaxSize()) {
         LazyRow(
@@ -47,7 +53,13 @@ fun ChatScreen(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.spacedBy((-10).dp)
         ) {
             items(listOf("All", "Unread", "Favourites", "Groups", "+")) { label ->
-                FilterButton(label)
+                FilterButton(
+                    label = label,
+                    isSelected = selectedFilter == label,
+                    onClick = {
+                        selectedFilter = label
+                    }
+                )
             }
         }
 
