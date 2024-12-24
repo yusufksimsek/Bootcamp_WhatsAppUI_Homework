@@ -44,12 +44,6 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
-    val systemUiController = rememberSystemUiController()
-    LaunchedEffect(Unit) {
-        systemUiController.setSystemBarsColor(
-            color = Color.White
-        )
-    }
 
     val bottomTabBarItems = GetBottomTabBarItems()
 
