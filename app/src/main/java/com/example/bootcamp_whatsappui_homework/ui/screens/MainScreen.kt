@@ -1,8 +1,13 @@
 package com.example.bootcamp_whatsappui_homework.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.BadgedBox
@@ -33,9 +38,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.bootcamp_whatsappui_homework.R
 import com.example.bootcamp_whatsappui_homework.model.repository.GetBottomTabBarItems
+import com.example.bootcamp_whatsappui_homework.ui.components.FilterButton
 import com.example.bootcamp_whatsappui_homework.ui.components.TopbarIcon
 import com.example.bootcamp_whatsappui_homework.ui.components.TopbarTitle
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -87,6 +94,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                     titleContentColor = Color.Black
                 )
             )
+
         },
         floatingActionButton = {
             FloatingActionButton(

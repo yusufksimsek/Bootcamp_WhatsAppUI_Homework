@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
@@ -30,22 +31,39 @@ import androidx.compose.ui.unit.sp
 import com.example.bootcamp_whatsappui_homework.R
 import com.example.bootcamp_whatsappui_homework.model.entity.Contact
 import com.example.bootcamp_whatsappui_homework.model.repository.GetContacts
+import com.example.bootcamp_whatsappui_homework.ui.components.FilterButton
 
 @Composable
 fun ChatScreen(modifier: Modifier = Modifier) {
 
     val contacts = GetContacts()
 
-    LazyColumn (
-        modifier = modifier
-            .fillMaxSize()
-            .background(Color.White)
-            .padding(10.dp)
-    ){
-        items(contacts) { contact ->
-            ContactItem(contact = contact)
+    Column(modifier = Modifier.fillMaxSize()) {
+        LazyRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.White)
+                .padding(horizontal = 5.dp),
+            horizontalArrangement = Arrangement.spacedBy((-10).dp)
+        ) {
+            items(listOf("All", "Unread", "Favourites", "Groups", "+")) { label ->
+                FilterButton(label)
+            }
+        }
+
+        LazyColumn (
+            modifier = modifier
+                .fillMaxSize()
+                .background(Color.White)
+                .padding(10.dp)
+        ){
+            items(contacts) { contact ->
+                ContactItem(contact = contact)
+            }
         }
     }
+
+
 }
 
 @Composable
@@ -54,7 +72,8 @@ fun ContactItem(
     modifier: Modifier = Modifier
 ) {
     Box(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
+            .fillMaxWidth()
             .padding(horizontal = 10.dp, vertical = 10.dp)
     ) {
         Row(
