@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WhatsApp</string>
+    <string name="topBarCamera_name">Kamera</string>
+    <string name="topBarSearch_name">Ara</string>
+    <string name="topBarMoreVert_name">Menü</string>
+    <string name="lazyRow_1">Tümü</string>
+    <string name="lazyRow_2">Okunmamış</string>
+    <string name="lazyRow_3">Favoriler</string>
+    <string name="lazyRow_4">Gruplar</string>
+    <string name="lazyRow_5">+</string>
+    <string name="bottomBar_1">Sohbetler</string>
+    <string name="bottomBar_2">Güncellemeler</string>
+    <string name="bottomBar_3">Topluluklar</string>
+    <string name="bottomBar_4">Aramalar</string>
+</resources>
