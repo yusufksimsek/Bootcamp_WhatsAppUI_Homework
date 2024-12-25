@@ -36,6 +36,8 @@ import com.example.bootcamp_whatsappui_homework.R
 import com.example.bootcamp_whatsappui_homework.model.entity.Contact
 import com.example.bootcamp_whatsappui_homework.model.repository.GetContacts
 import com.example.bootcamp_whatsappui_homework.ui.components.FilterButton
+import com.example.bootcamp_whatsappui_homework.ui.components.FilterRow
+import com.example.bootcamp_whatsappui_homework.ui.components.filterList
 
 @Composable
 fun ChatScreen(modifier: Modifier = Modifier) {
@@ -45,23 +47,11 @@ fun ChatScreen(modifier: Modifier = Modifier) {
 
 
     Column(modifier = Modifier.fillMaxSize()) {
-        LazyRow(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.White)
-                .padding(horizontal = 5.dp),
-            horizontalArrangement = Arrangement.spacedBy((-10).dp)
-        ) {
-            items(listOf("All", "Unread", "Favourites", "Groups", "+")) { label ->
-                FilterButton(
-                    label = label,
-                    isSelected = selectedFilter == label,
-                    onClick = {
-                        selectedFilter = label
-                    }
-                )
-            }
-        }
+        FilterRow(
+            filters = filterList,
+            selectedFilter = selectedFilter,
+            onFilterSelected = { selectedFilter = it }
+        )
 
         LazyColumn (
             modifier = modifier
