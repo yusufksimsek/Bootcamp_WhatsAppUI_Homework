@@ -34,13 +34,14 @@ import androidx.compose.ui.unit.sp
 import com.example.bootcamp_whatsappui_homework.R
 import com.example.bootcamp_whatsappui_homework.model.entity.Contact
 import com.example.bootcamp_whatsappui_homework.model.repository.GetContacts
+import com.example.bootcamp_whatsappui_homework.model.repository.getFilterList
 import com.example.bootcamp_whatsappui_homework.ui.components.FilterRow
-import com.example.bootcamp_whatsappui_homework.ui.components.filterList
 
 @Composable
 fun ChatScreen(modifier: Modifier = Modifier) {
 
     val contacts = GetContacts()
+    val filterList = getFilterList()
     var selectedFilter by rememberSaveable { mutableStateOf("All") }
 
 
