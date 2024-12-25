@@ -3,4 +3,9 @@
     <string name="topBarCamera_name">Camera</string>
     <string name="topBarSearch_name">Search</string>
     <string name="topBarMoreVert_name">Menu</string>
+    <string name="lazyRow_1">All</string>
+    <string name="lazyRow_2">Unread</string>
+    <string name="lazyRow_3">Favourites</string>
+    <string name="lazyRow_4">Groups</string>
+    <string name="lazyRow_5">+</string>
 </resources>
