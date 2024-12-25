@@ -44,7 +44,6 @@ fun ChatScreen(modifier: Modifier = Modifier) {
     val filterList = getFilterList()
     var selectedFilter by rememberSaveable { mutableStateOf("All") }
 
-
     Column(modifier = Modifier.fillMaxSize()) {
         FilterRow(
             filters = filterList,
