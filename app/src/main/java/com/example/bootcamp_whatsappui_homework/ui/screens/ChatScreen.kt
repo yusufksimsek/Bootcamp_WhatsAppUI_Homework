@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
@@ -35,7 +34,6 @@ import androidx.compose.ui.unit.sp
 import com.example.bootcamp_whatsappui_homework.R
 import com.example.bootcamp_whatsappui_homework.model.entity.Contact
 import com.example.bootcamp_whatsappui_homework.model.repository.GetContacts
-import com.example.bootcamp_whatsappui_homework.ui.components.FilterButton
 import com.example.bootcamp_whatsappui_homework.ui.components.FilterRow
 import com.example.bootcamp_whatsappui_homework.ui.components.filterList
 
