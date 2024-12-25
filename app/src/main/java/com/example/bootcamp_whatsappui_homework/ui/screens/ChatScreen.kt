@@ -2,6 +2,7 @@ package com.example.bootcamp_whatsappui_homework.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,9 +37,10 @@ import com.example.bootcamp_whatsappui_homework.model.entity.Contact
 import com.example.bootcamp_whatsappui_homework.model.repository.GetContacts
 import com.example.bootcamp_whatsappui_homework.model.repository.getFilterList
 import com.example.bootcamp_whatsappui_homework.ui.components.FilterRow
+import com.example.bootcamp_whatsappui_homework.ui.theme.Colors
 
 @Composable
-fun ChatScreen(modifier: Modifier = Modifier) {
+fun ChatScreen(modifier: Modifier = Modifier,darkTheme: Boolean = isSystemInDarkTheme()) {
 
     val contacts = GetContacts()
     val filterList = getFilterList()
@@ -54,7 +56,7 @@ fun ChatScreen(modifier: Modifier = Modifier) {
         LazyColumn (
             modifier = modifier
                 .fillMaxSize()
-                .background(Color.White)
+                .background(if(darkTheme) Colors.DarkBackground else Color.White)
                 .padding(10.dp)
         ){
             items(contacts) { contact ->
@@ -67,7 +69,8 @@ fun ChatScreen(modifier: Modifier = Modifier) {
 @Composable
 fun ContactItem(
     contact: Contact,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    darkTheme: Boolean = isSystemInDarkTheme()
 ) {
     Box(
         modifier = modifier
@@ -96,7 +99,7 @@ fun ContactItem(
                     fontFamily = FontFamily(Font(R.font.helvetica)),
                     fontWeight = FontWeight.Bold,
                     fontSize = 21.sp,
-                    color = Color.Black
+                    color = if(darkTheme) Colors.ContactColor else Color.Black
                 )
                 Text(
                     text = contact.message,

@@ -10,7 +10,7 @@ fun GetContacts(): List<Contact> {
         Contact("Doctor Wilson", "Happy birthday!", "1:50 PM", R.drawable.person_9),
         Contact("Alice Johnson", "Got your message!", "2:15 PM", R.drawable.person_5),
         Contact("Olivia Clark", "I'll call you later.", "2:50 PM", R.drawable.person_un),
-        Contact("John Doe", "Hey, what's up?", "3:00 PM", R.drawable.person_4),
+        Contact("John Doe", "Hey, what's up?", "Yesterday", R.drawable.person_4),
         Contact("Michael Brown", "Let's catch up soon!", "Yesterday", R.drawable.person_6),
         Contact("Emily Davis", "Are you free tomorrow?", "Yesterday", R.drawable.person_1),
         Contact("Sophia Lee", "Have a great day!", "Yesterday", R.drawable.person_8),

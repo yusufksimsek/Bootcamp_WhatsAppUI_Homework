@@ -1,6 +1,7 @@
 package com.example.bootcamp_whatsappui_homework.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -45,16 +46,17 @@ import com.example.bootcamp_whatsappui_homework.model.repository.GetBottomTabBar
 import com.example.bootcamp_whatsappui_homework.ui.components.FilterButton
 import com.example.bootcamp_whatsappui_homework.ui.components.TopbarIcon
 import com.example.bootcamp_whatsappui_homework.ui.components.TopbarTitle
+import com.example.bootcamp_whatsappui_homework.ui.theme.Colors
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
+fun MainScreen(modifier: Modifier = Modifier, darkTheme: Boolean = isSystemInDarkTheme()) {
     val systemUiController = rememberSystemUiController()
 
     LaunchedEffect(Unit) {
-        systemUiController.setSystemBarsColor(color = Color.White)
+        systemUiController.setSystemBarsColor(color = if (darkTheme) Color.Black else Color.White)
     }
     val bottomTabBarItems = GetBottomTabBarItems()
 
@@ -89,13 +91,16 @@ fun MainScreen(modifier: Modifier = Modifier) {
                     )
                 },
                 actions = {
-                    TopbarIcon(painterResource(R.drawable.photo_camera), "Camera", Color.Black)
-                    TopbarIcon(painterResource(R.drawable.search), "Search", Color.Black)
-                    TopbarIcon(painterResource(R.drawable.more_vert), "Menu", Color.Black)
+                    TopbarIcon(painterResource(R.drawable.photo_camera), "Camera",
+                        if(darkTheme) Colors.DarkIconColor else Color.Black)
+                    TopbarIcon(painterResource(R.drawable.search), "Search",
+                        if(darkTheme) Colors.DarkIconColor else Color.Black)
+                    TopbarIcon(painterResource(R.drawable.more_vert), "Menu",
+                        if(darkTheme) Colors.DarkIconColor else Color.Black)
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.White,
-                    titleContentColor = Color.Black
+                    containerColor = if(darkTheme) Colors.DarkBackground else Color.White,
+                    titleContentColor = if(darkTheme) Colors.DarkBackground else Color.Black
                 )
             )
 
@@ -109,14 +114,14 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 Icon(
                     painter = painterResource(id = R.drawable.chat_plus),
                     contentDescription = "Add Chat",
-                    tint = Color.White
+                    tint = if(darkTheme) Colors.DarkIconColor else Color.White,
                 )
             }
         },
         bottomBar = {
             NavigationBar(
-                containerColor = Color.White,
-                contentColor = colorResource(id = R.color.light_green)
+                containerColor = if(darkTheme) Colors.DarkBackground else Color.White,
+                contentColor = if(darkTheme) Colors.DarkGreen else Colors.LightGreen,
             ) {
                 bottomTabBarItems.forEachIndexed { index, bottomTabBarItem ->
                     NavigationBarItem(
@@ -148,15 +153,15 @@ fun MainScreen(modifier: Modifier = Modifier) {
                                 text = bottomTabBarItem.title,
                                 fontFamily = FontFamily(Font(R.font.helvetica)),
                                 fontWeight = FontWeight.Normal,
-                                color = Color.Black
+                                color = if(darkTheme) Color.White else Color.Black
                             )
                         },
                         colors = NavigationBarItemDefaults.colors(
-                            selectedIconColor = colorResource(id = R.color.green),
-                            selectedTextColor = Color.Black,
-                            indicatorColor = colorResource(id = R.color.light_green),
-                            unselectedIconColor = Color.Black,
-                            unselectedTextColor = Color.Black
+                            selectedIconColor = if(darkTheme) Colors.DarkIconColor else Colors.Green,
+                            selectedTextColor = if(darkTheme) Colors.DarkIconColor else Color.Black,
+                            indicatorColor = if(darkTheme) Colors.DarkGreen else Colors.LightGreen,
+                            unselectedIconColor = if(darkTheme) Colors.DarkIconColor else Color.Black,
+                            unselectedTextColor = if(darkTheme) Colors.DarkIconColor else Color.Black,
                         )
                     )
                 }

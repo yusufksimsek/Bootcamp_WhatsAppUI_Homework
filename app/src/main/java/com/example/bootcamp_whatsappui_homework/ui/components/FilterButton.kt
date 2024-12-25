@@ -2,6 +2,7 @@ package com.example.bootcamp_whatsappui_homework.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -17,19 +18,22 @@ import com.example.bootcamp_whatsappui_homework.R
 import com.example.bootcamp_whatsappui_homework.ui.theme.Colors
 
 @Composable
-fun FilterButton(label: String, isSelected: Boolean, onClick: () -> Unit) {
+fun FilterButton(label: String,
+                 isSelected: Boolean,
+                 onClick: () -> Unit,
+                 darkTheme: Boolean = isSystemInDarkTheme()) {
     Text(
         text = label,
         modifier = Modifier
             .clickable { onClick() }
             .padding(8.dp)
             .background(
-                if (isSelected) Colors.SelectedLightGrayBackground else Colors.LightGrayBackground,
+                if (darkTheme) Colors.RowBackground else Colors.LightGrayBackground,
                 shape = RoundedCornerShape(20.dp)
             )
             .padding(horizontal = 15.dp, vertical = 6.dp),
         fontSize = 16.sp,
-        color = Colors.DarkGray,
+        color = if (darkTheme) Colors.RowTextColor else Color.Black,
         fontFamily = FontFamily(Font(R.font.helvetica)),
         textAlign = TextAlign.Center
     )
