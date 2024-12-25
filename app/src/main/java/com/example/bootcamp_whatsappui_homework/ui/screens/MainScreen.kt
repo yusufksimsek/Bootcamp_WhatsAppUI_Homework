@@ -159,7 +159,7 @@ fun MainScreen(modifier: Modifier = Modifier, darkTheme: Boolean = isSystemInDar
                         colors = NavigationBarItemDefaults.colors(
                             selectedIconColor = if(darkTheme) Colors.DarkIconColor else Colors.Green,
                             selectedTextColor = if(darkTheme) Colors.DarkIconColor else Color.Black,
-                            indicatorColor = if(darkTheme) Colors.DarkGreen else Colors.LightGreen,
+                            indicatorColor = if(darkTheme) Colors.SelectedRowColor else Colors.LightGreen,
                             unselectedIconColor = if(darkTheme) Colors.DarkIconColor else Color.Black,
                             unselectedTextColor = if(darkTheme) Colors.DarkIconColor else Color.Black,
                         )

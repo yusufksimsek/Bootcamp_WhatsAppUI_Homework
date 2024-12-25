@@ -18,24 +18,37 @@ import com.example.bootcamp_whatsappui_homework.R
 import com.example.bootcamp_whatsappui_homework.ui.theme.Colors
 
 @Composable
-fun FilterButton(label: String,
-                 isSelected: Boolean,
-                 onClick: () -> Unit,
-                 darkTheme: Boolean = isSystemInDarkTheme()) {
+fun FilterButton(
+    label: String,
+    isSelected: Boolean,
+    onClick: () -> Unit,
+    darkTheme: Boolean = isSystemInDarkTheme()) {
     Text(
         text = label,
         modifier = Modifier
             .clickable { onClick() }
             .padding(8.dp)
             .background(
-                if (darkTheme) Colors.RowBackground else Colors.LightGrayBackground,
+                color = when {
+                    isSelected && darkTheme -> Colors.SelectedRowColor
+                    isSelected && !darkTheme -> Colors.LightGreen
+                    darkTheme -> Colors.RowBackground
+                    else -> Colors.LightGrayBackground
+                },
                 shape = RoundedCornerShape(20.dp)
             )
             .padding(horizontal = 15.dp, vertical = 6.dp),
         fontSize = 16.sp,
-        color = if (darkTheme) Colors.RowTextColor else Color.Black,
+        color = when {
+            isSelected && darkTheme -> Colors.SelectedRowTextColor
+            isSelected && !darkTheme -> Colors.DarkGreen
+            darkTheme -> Colors.RowTextColor
+            else -> Colors.Black
+        },
         fontFamily = FontFamily(Font(R.font.helvetica)),
         textAlign = TextAlign.Center
     )
 }
+
+//if (darkTheme) Colors.RowTextColor else Color.Black,
 

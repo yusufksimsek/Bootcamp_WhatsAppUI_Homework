@@ -4,10 +4,11 @@ import androidx.compose.ui.graphics.Color
 
 object Colors {
     val LightGrayBackground = Color(0xFFF5F5F5)
-    val SelectedLightGrayBackground = Color(0xFFD7FCD1)
     val LightGreen = Color(0xFFD7FCD1)
     val DarkGreen = Color(0xFF172E25)
     val Green = Color(0xFF1DAA61)
+    val SelectedRowColor = Color(0xFF0A332C)
+    val SelectedRowTextColor = Color(0xFF00A884)
     val RowBackground = Color(0xFF202C33)
     val DarkBackground = Color(0xFF111B21)
     val ContactColor = Color(0xFFE9EDEF)
