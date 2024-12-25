@@ -8,4 +8,8 @@
     <string name="lazyRow_3">Favourites</string>
     <string name="lazyRow_4">Groups</string>
     <string name="lazyRow_5">+</string>
+    <string name="bottomBar_1">Chats</string>
+    <string name="bottomBar_2">Updates</string>
+    <string name="bottomBar_3">Communities</string>
+    <string name="bottomBar_4">Calls</string>
 </resources>
