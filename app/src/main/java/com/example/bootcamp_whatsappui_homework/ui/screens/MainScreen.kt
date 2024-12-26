@@ -114,7 +114,7 @@ fun MainScreen(modifier: Modifier = Modifier, darkTheme: Boolean = isSystemInDar
                 Icon(
                     painter = painterResource(id = R.drawable.chat_plus),
                     contentDescription = "Add Chat",
-                    tint = if(darkTheme) Colors.DarkIconColor else Color.White,
+                    tint = Color.White,
                 )
             }
         },
