@@ -103,7 +103,7 @@ fun ContactItem(
                     text = contact.name,
                     fontFamily = FontFamily(Font(R.font.helvetica)),
                     fontWeight = FontWeight.Bold,
-                    fontSize = 21.sp,
+                    fontSize = 19.sp,
                     color = if(darkTheme) Colors.ContactColor else Color.Black
                 )
                 Text(
