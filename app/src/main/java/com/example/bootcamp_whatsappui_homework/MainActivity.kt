@@ -7,9 +7,11 @@ import androidx.activity.viewModels
 import com.example.bootcamp_whatsappui_homework.ui.screens.MainScreen
 import com.example.bootcamp_whatsappui_homework.ui.theme.Bootcamp_WhatsAppUI_HomeworkTheme
 import com.example.bootcamp_whatsappui_homework.ui.viewmodel.ChatScreenViewModel
+import com.example.bootcamp_whatsappui_homework.ui.viewmodel.FilterViewModel
 
 class MainActivity : ComponentActivity() {
-    private val chatScreenViewModel: ChatScreenViewModel by viewModels() // ViewModel'i bağladık
+    private val chatScreenViewModel: ChatScreenViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

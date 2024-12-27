@@ -32,36 +32,36 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.bootcamp_whatsappui_homework.R
 import com.example.bootcamp_whatsappui_homework.model.entity.Contact
 import com.example.bootcamp_whatsappui_homework.model.repository.getFilterList
 import com.example.bootcamp_whatsappui_homework.ui.components.FilterRow
 import com.example.bootcamp_whatsappui_homework.ui.theme.Colors
 import com.example.bootcamp_whatsappui_homework.ui.viewmodel.ChatScreenViewModel
+import com.example.bootcamp_whatsappui_homework.ui.viewmodel.FilterViewModel
 
 @Composable
 fun ChatScreen(
     modifier: Modifier = Modifier,
     darkTheme: Boolean = isSystemInDarkTheme(),
-    viewModel: ChatScreenViewModel
+    chatScreenviewModel: ChatScreenViewModel,
+    filterViewModel: FilterViewModel = viewModel()
 ) {
 
-    val contacts = viewModel.contacts
-
-    val filterList = getFilterList()
-    var selectedFilter by rememberSaveable { mutableStateOf("All") }
+    val contacts = chatScreenviewModel.contacts
 
     Column(modifier = Modifier.fillMaxSize()) {
         FilterRow(
-            filters = filterList,
-            selectedFilter = selectedFilter,
-            onFilterSelected = { selectedFilter = it }
+            filters = filterViewModel.filters,
+            selectedFilter = filterViewModel.selectedFilter,
+            onFilterSelected = { filterViewModel.onFilterSelected(it) }
         )
 
         LazyColumn (
             modifier = modifier
                 .fillMaxSize()
-                .background(if(darkTheme) Colors.DarkBackground else Color.White)
+                .background(if (darkTheme) Colors.DarkBackground else Color.White)
                 .padding(10.dp)
         ){
             items(contacts) { contact ->

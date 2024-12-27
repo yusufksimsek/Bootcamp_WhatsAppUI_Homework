@@ -41,6 +41,7 @@ import com.example.bootcamp_whatsappui_homework.ui.components.TopbarIcon
 import com.example.bootcamp_whatsappui_homework.ui.components.TopbarTitle
 import com.example.bootcamp_whatsappui_homework.ui.theme.Colors
 import com.example.bootcamp_whatsappui_homework.ui.viewmodel.ChatScreenViewModel
+import com.example.bootcamp_whatsappui_homework.ui.viewmodel.FilterViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.launch
 
@@ -52,8 +53,6 @@ fun MainScreen(
     chatScreenViewModel: ChatScreenViewModel,
     ) {
     val systemUiController = rememberSystemUiController()
-
-    //val mainViewModel: MainViewModel = viewModel()
 
     LaunchedEffect(Unit) {
         systemUiController.setSystemBarsColor(color = if (darkTheme) Color.Black else Color.White)
@@ -176,7 +175,7 @@ fun MainScreen(
             verticalAlignment = Alignment.CenterVertically
         ) { page: Int ->
             when (page) {
-                0 -> ChatScreen(viewModel = chatScreenViewModel)
+                0 -> ChatScreen(chatScreenviewModel = chatScreenViewModel)
             }
         }
     }

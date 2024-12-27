@@ -4,13 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.example.bootcamp_whatsappui_homework.R
 
-@Composable
-fun getFilterList(): List<String> {
+fun getFilterList(): List<Int> {
     return listOf(
-        stringResource(R.string.lazyRow_1),
-        stringResource(R.string.lazyRow_2),
-        stringResource(R.string.lazyRow_3),
-        stringResource(R.string.lazyRow_4),
-        stringResource(R.string.lazyRow_5),
+        R.string.lazyRow_1,
+        R.string.lazyRow_2,
+        R.string.lazyRow_3,
+        R.string.lazyRow_4,
+        R.string.lazyRow_5,
     )
 }
