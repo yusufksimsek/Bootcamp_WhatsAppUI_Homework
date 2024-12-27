@@ -4,27 +4,18 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.bootcamp_whatsappui_homework.ui.screens.MainScreen
 import com.example.bootcamp_whatsappui_homework.ui.theme.Bootcamp_WhatsAppUI_HomeworkTheme
-import com.example.bootcamp_whatsappui_homework.ui.viewmodel.MainViewModel
+import com.example.bootcamp_whatsappui_homework.ui.viewmodel.ChatScreenViewModel
 
 class MainActivity : ComponentActivity() {
+    private val chatScreenViewModel: ChatScreenViewModel by viewModels() // ViewModel'i bağladık
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             Bootcamp_WhatsAppUI_HomeworkTheme {
-                MainScreen()
+                MainScreen(chatScreenViewModel = chatScreenViewModel)
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Bootcamp_WhatsAppUI_HomeworkTheme {
-        MainScreen()
     }
 }
