@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -38,11 +39,17 @@ import com.example.bootcamp_whatsappui_homework.model.repository.GetContacts
 import com.example.bootcamp_whatsappui_homework.model.repository.getFilterList
 import com.example.bootcamp_whatsappui_homework.ui.components.FilterRow
 import com.example.bootcamp_whatsappui_homework.ui.theme.Colors
+import com.example.bootcamp_whatsappui_homework.ui.viewmodel.MainViewModel
 
 @Composable
-fun ChatScreen(modifier: Modifier = Modifier,darkTheme: Boolean = isSystemInDarkTheme()) {
+fun ChatScreen(
+    modifier: Modifier = Modifier,
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    viewModel: MainViewModel
+) {
 
-    val contacts = GetContacts()
+    val contacts = viewModel.contacts.collectAsState()
+
     val filterList = getFilterList()
     var selectedFilter by rememberSaveable { mutableStateOf("All") }
 
@@ -59,7 +66,7 @@ fun ChatScreen(modifier: Modifier = Modifier,darkTheme: Boolean = isSystemInDark
                 .background(if(darkTheme) Colors.DarkBackground else Color.White)
                 .padding(10.dp)
         ){
-            items(contacts) { contact ->
+            items(contacts.value) { contact ->
                 ContactItem(contact = contact)
             }
         }

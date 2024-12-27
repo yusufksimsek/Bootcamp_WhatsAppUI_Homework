@@ -69,4 +69,13 @@ dependencies {
 
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.29.0-alpha")
 
+    //ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.5.1")
+    implementation("androidx.activity:activity-ktx:1.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
+
+    //LiveData
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
+
 }

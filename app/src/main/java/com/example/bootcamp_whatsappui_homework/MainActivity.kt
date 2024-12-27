@@ -3,10 +3,12 @@ package com.example.bootcamp_whatsappui_homework
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.bootcamp_whatsappui_homework.ui.screens.MainScreen
 import com.example.bootcamp_whatsappui_homework.ui.theme.Bootcamp_WhatsAppUI_HomeworkTheme
+import com.example.bootcamp_whatsappui_homework.ui.viewmodel.MainViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

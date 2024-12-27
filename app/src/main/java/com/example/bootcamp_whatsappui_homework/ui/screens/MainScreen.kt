@@ -41,19 +41,25 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.bootcamp_whatsappui_homework.R
 import com.example.bootcamp_whatsappui_homework.model.repository.GetBottomTabBarItems
 import com.example.bootcamp_whatsappui_homework.ui.components.FilterButton
 import com.example.bootcamp_whatsappui_homework.ui.components.TopbarIcon
 import com.example.bootcamp_whatsappui_homework.ui.components.TopbarTitle
 import com.example.bootcamp_whatsappui_homework.ui.theme.Colors
+import com.example.bootcamp_whatsappui_homework.ui.viewmodel.MainViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
-fun MainScreen(modifier: Modifier = Modifier, darkTheme: Boolean = isSystemInDarkTheme()) {
+fun MainScreen(
+    modifier: Modifier = Modifier,
+    darkTheme: Boolean = isSystemInDarkTheme()) {
     val systemUiController = rememberSystemUiController()
+
+    val mainViewModel: MainViewModel = viewModel()
 
     LaunchedEffect(Unit) {
         systemUiController.setSystemBarsColor(color = if (darkTheme) Color.Black else Color.White)
@@ -176,7 +182,9 @@ fun MainScreen(modifier: Modifier = Modifier, darkTheme: Boolean = isSystemInDar
             verticalAlignment = Alignment.CenterVertically
         ) { page: Int ->
             when (page) {
-                0 -> ChatScreen()
+                0 -> ChatScreen(modifier = modifier,
+                                darkTheme = darkTheme,
+                                viewModel = mainViewModel)
             }
         }
     }
